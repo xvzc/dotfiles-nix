@@ -2,10 +2,9 @@
 
   #  Install all apps and packages here.
   #
-  # NOTE: Your can find all available options in:
+  #  NOTE: Your can find all available options in:
   #    https://daiderd.com/nix-darwin/manual/index.html
   # 
-  # TODO: Fell free to modify this file to fit your needs.
 
   # Install packages from nix's official package repository.
   #
@@ -14,19 +13,34 @@
   #
   # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
   environment.systemPackages = with pkgs; [
+    neovim
     git
   ];
+  environment.variables.EDITOR = "nvim";
 
-  # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
-  # 
-  # The apps installed by homebrew are not managed by nix, and not reproducible!
-  # But on macOS, homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
   homebrew = {
     enable = true;
 
     onActivation = {
       autoUpdate = false;
+      # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
+    };
+
+    # Applications to install from Mac App Store using mas.
+    # You need to install all these Apps manually first so that your apple account have records for them.
+    # otherwise Apple Store will refuse to install them.
+    # For details, see https://github.com/mas-cli/mas 
+    masApps = {
+      # TODO: Feel free to add your favorite apps here.
+      # See mas list, brew instsall mas
+      Xcode = 497799835;
+      Telegram = 747648890;
+      KakaoTalk = 869223134;
+      Gifski = 1351639930;
+      Slack = 803453959;
+      Magnet = 441258766;
+      Numbers = 409203825;
     };
 
     taps = [
@@ -34,16 +48,17 @@
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
+      "daipeihust/tap"
+      "kardolus/chatgpt-cli/"
     ];
 
-    # `brew install`
-    # TODO Feel free to add your favorite apps here.
+    # brew install
     brews = [
-      "bat"
       "python@3.11"
       "awscli"
       "bat"
       "bob"
+      "chezmoi"
       "cmake"
       "coreutils"
       "curl"
@@ -52,7 +67,6 @@
       "fd"
       "fzf"
       "gcc"
-      "libtiff"
       "gh"
       "git"
       "hugo"
@@ -61,22 +75,18 @@
       "lazygit"
       "netcat"
       "perl"
-      "tcl-tk"
       "ranger"
       "ripgrep"
       "terraform"
       "tmux"
       "tmuxinator"
       "tree"
-      "wakeonlan"
+      "im-select"
+      "chatgpt-cli"
     ];
 
-    # `brew install --cask`
-    # TODO Feel free to add your favorite apps here.
+    # brew install --cask
     casks = [
-      "google-chrome"
-      "daipeihust/tap/im-select"
-      "kardolus/chatgpt-cli/chatgpt-cli"
       "1password"
       "1password-cli"
       "alacritty"
@@ -86,6 +96,7 @@
       "openvpn-connect"
       "rar"
       "wezterm"
+      "alfred"
     ];
   };
 }
