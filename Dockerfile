@@ -3,7 +3,7 @@ from ubuntu:24.04
 ARG username=tester
 
 RUN apt update
-RUN apt install -y curl xz-utils
+RUN apt install -y curl xz-utils neovim
 
 RUN useradd -ms /bin/bash $username
 RUN mkdir -m 0755 /nix && chown $username /nix
