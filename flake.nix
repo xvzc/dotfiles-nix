@@ -21,7 +21,11 @@
   # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
     # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-23.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+
+
 
     # home-manager, used for managing user configuration
     home-manager = {
@@ -30,12 +34,12 @@
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with the `inputs.nixpkgs` 
       # of the current flake,
       # to avoid problems caused by different versions of nixpkgs dependencies.
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     darwin = {
       url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
