@@ -9,44 +9,49 @@
     xz
     unzip
     p7zip
+    bat
+    go
+    nodejs
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
     yq-go # yaml processer https://github.com/mikefarah/yq
     fzf # A command-line fuzzy finder
+    fd
+    ripgrep
+    terraform
+    tmux
+    tmuxinator
+    perl
+    netcat
 
-    aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    socat # replacement of openbsd-netcat
+    gcc
+    doxygen
+    awscli2
+    _1password
+    python3
+
     nmap # A utility for network discovery and security auditing
+    gh
 
     # misc
     cowsay
     file
     which
     tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    caddy
-    gnupg
+    lazygit
+    ranger
+    kubectl
 
     # productivity
     glow # markdown previewer in terminal
   ];
 
   programs = {
-    # modern vim
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-    };
-
     # A modern replacement for ‘ls’
     # useful in bash/zsh prompt, not in nushell.
-    exa = {
+    eza = {
       enable = true;
       enableAliases = true;
       git = true;

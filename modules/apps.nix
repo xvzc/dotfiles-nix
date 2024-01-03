@@ -49,54 +49,29 @@
       "homebrew/services"
       "homebrew/cask-versions"
       "daipeihust/tap"
-      "kardolus/chatgpt-cli/"
+      "kardolus/chatgpt-cli"
     ];
 
     # brew install
     brews = [
-      "python@3.11"
-      "awscli"
-      "bat"
       "bob"
-      "chezmoi"
+      "mas"
+      "awscli"
       "cmake"
-      "coreutils"
-      "curl"
-      "doxygen"
-      "eza"
-      "fd"
-      "fzf"
-      "gcc"
-      "gh"
-      "git"
-      "hugo"
-      "jq"
       "kubernetes-cli"
-      "lazygit"
-      "netcat"
-      "perl"
-      "ranger"
-      "ripgrep"
-      "terraform"
-      "tmux"
-      "tmuxinator"
-      "tree"
+      "coreutils"
+      "hugo"
       "im-select"
       "chatgpt-cli"
     ];
 
     # brew install --cask
     casks = [
-      "1password"
-      "1password-cli"
-      "alacritty"
-      "hammerspoon"
-      "keybase"
-      "keycastr"
       "openvpn-connect"
-      "rar"
+      "google-chrome"
       "wezterm"
       "alfred"
+      "1password"
     ];
   };
 }

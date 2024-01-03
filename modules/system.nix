@@ -19,7 +19,6 @@
       # so we do not need to logout and login again to make the changes take effect.
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
-
     defaults = {
       # menuExtraClock.Show24Hour = true;  # show 24 hour clock
       
@@ -47,10 +46,9 @@
 
       # customize trackpad
       trackpad = {
-        # tap - 轻触触摸板, click - 点击触摸板
         Clicking = true;  # enable tap to click(轻触触摸板相当于点击)
         TrackpadRightClick = true;  # enable two finger right click
-        # TrackpadThreeFingerDrag = true;  # enable three finger drag
+	Dragging = true;
       };
 
       # customize macOS
@@ -134,16 +132,10 @@
     # but it's not supported by macOS yet.
     keyboard = {
       enableKeyMapping = true;  # enable key mapping so that we can use `option` as `control`
-
-      # NOTE: do NOT support remap capslock to both control and escape at the same time
-      remapCapsLockToControl = false;  # remap caps lock to control, useful for emac users
-      remapCapsLockToEscape  = true;   # remap caps lock to escape, useful for vim users
-
-      # swap left command and left alt 
-      # so it matches common keyboard layout: `ctrl | command | alt`
-      #
-      # disabled, caused only problems!
-      swapLeftCommandAndLeftAlt = false;  
+      remapCapsLockToControl = true;  # remap caps lock to control, useful for emac users
+      nonUS = {
+	remapTilde = true;
+      };
     };
   };
 
